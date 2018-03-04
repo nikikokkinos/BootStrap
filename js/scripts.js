@@ -80,6 +80,7 @@ var StudyAreaBoundary = L.geoJSON(StudyArea, {
   weight: 3,
 }).addTo(map);
 
+console.log(PlutoData)
 
 var LU_Map = L.geoJSON(PlutoData, {
       style: function(feature) {
@@ -119,7 +120,7 @@ var LU_Map = L.geoJSON(PlutoData, {
     }
   }).addTo(map);
 
-var geojsonMarkerOptions = {
+var OfficePoints = {
     radius: 10,
     opacity: 1,
     fillColor: "ORANGE",
@@ -129,7 +130,7 @@ var geojsonMarkerOptions = {
 
 var OfficeOverlay  = L.geoJSON(NewOfficeSpace, {
    pointToLayer: function (feature, latlng) {
-     var marker = L.circleMarker(latlng, geojsonMarkerOptions)
+     var marker = L.circleMarker(latlng, OfficePoints)
          .bindPopup(feature.properties.Address + ' Built in ' +  feature.properties.YearBuilt, {offset: [0, -6]});
          marker.on('mouseover', function (e) {
              this.openPopup();
@@ -152,7 +153,7 @@ var ResidentialPoints = {
 
 var ResidentialOverlay = L.geoJSON(NewResidentialFloorArea, {
   pointToLayer: function (feature, latlng) {
-    var marker = L.circleMarker(latlng, geojsonMarkerOptions)
+    var marker = L.circleMarker(latlng, ResidentialPoints)
         .bindPopup(feature.properties.Address + ' Built in ' +  feature.properties.YearBuilt, {offset: [0, -6]});
         marker.on('mouseover', function (e) {
             this.openPopup();
@@ -175,7 +176,7 @@ var RetailPoints = {
 
 var RetailOverlay = L.geoJSON(NewRetailFloorArea, {
   pointToLayer: function (feature, latlng) {
-    var marker = L.circleMarker(latlng, geojsonMarkerOptions)
+    var marker = L.circleMarker(latlng, RetailPoints)
         .bindPopup(feature.properties.Address + ' Built in ' +  feature.properties.YearBuilt, {offset: [0, -6]});
         marker.on('mouseover', function (e) {
             this.openPopup();
@@ -198,7 +199,7 @@ var StoragePoints = {
 
 var StorageOverlay = L.geoJSON(NewStorageArea, {
   pointToLayer: function (feature, latlng) {
-    var marker = L.circleMarker(latlng, geojsonMarkerOptions)
+    var marker = L.circleMarker(latlng, StoragePoints)
         .bindPopup(feature.properties.Address + ' Built in ' +  feature.properties.YearBuilt, {offset: [0, -6]});
         marker.on('mouseover', function (e) {
             this.openPopup();
@@ -221,7 +222,7 @@ var FactoryPoints = {
 
 var FactoryOverlay = L.geoJSON(NewFactoryFloorArea, {
   pointToLayer: function (feature, latlng) {
-    var marker = L.circleMarker(latlng, geojsonMarkerOptions)
+    var marker = L.circleMarker(latlng, FactoryPoints)
         .bindPopup(feature.properties.Address + ' Built in ' +  feature.properties.YearBuilt, {offset: [0, -6]});
         marker.on('mouseover', function (e) {
             this.openPopup();

@@ -75,6 +75,7 @@ const lookupLandUse = function(landUseCode) {
 }
 
 console.log(StudyArea)
+
 var StudyAreaBoundary = L.geoJSON(StudyArea, {
   fillColor: "none",
   color: "#ff8049",

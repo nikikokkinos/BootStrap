@@ -122,6 +122,8 @@ var LU_Map = L.geoJSON(PlutoData, {
     }
   }).addTo(map);
 
+console.log(NewOfficeSpace)
+
 var OfficePoints = {
     radius: 10,
     opacity: 1,

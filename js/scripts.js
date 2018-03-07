@@ -81,6 +81,11 @@ var SubwayLines = L.geoJSON(BronxSubwayLines, {
   weight: 5,
 }).addTo(map);
 
+var Stations = L.geoJSON(SubwayStations, {
+  color: "BLACK",
+  weight: 1,
+}).addTo(map);
+
 var StudyAreaBoundary = L.geoJSON(StudyArea, {
   fillColor: "none",
   color: "#ff8049",

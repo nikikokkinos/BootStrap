@@ -1,4 +1,4 @@
-var defaultCenter = [40.812575,-73.922024];
+var defaultCenter = [40.817155,-73.922968];
 var defaultZoom = 14;
 
 var map = L.map('my-map').setView(defaultCenter, defaultZoom);
@@ -74,15 +74,18 @@ const lookupLandUse = function(landUseCode) {
   }
 }
 
-console.log(StudyArea)
+console.log(BronxSubwayLines)
+
+var SubwayLines = L.geoJSON(BronxSubwayLines, {
+  color: "BLACK",
+  weight: 5,
+}).addTo(map);
 
 var StudyAreaBoundary = L.geoJSON(StudyArea, {
   fillColor: "none",
   color: "#ff8049",
   weight: 3,
 }).addTo(map);
-
-console.log(PlutoData)
 
 var LU_Map = L.geoJSON(PlutoData, {
       style: function(feature) {
@@ -121,8 +124,6 @@ var LU_Map = L.geoJSON(PlutoData, {
       });
     }
   }).addTo(map);
-
-console.log(NewOfficeSpace)
 
 var OfficePoints = {
     radius: 10,

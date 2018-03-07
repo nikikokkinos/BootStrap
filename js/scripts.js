@@ -81,12 +81,34 @@ var SubwayLines = L.geoJSON(BronxSubwayLines, {
   weight: 5,
 }).addTo(map);
 
-var Stations = L.geoJSON(SubwayStations, {
-  radius: 10,
-  opacity: 1,
-  fillColor: "BlACK",
-  fillOpacity: 0.5,
-  weight: 1,
+// var Stations = L.geoJSON(SubwayStations, {
+//   radius: 10,
+//   opacity: 1,
+//   fillColor: "BlACK",
+//   fillOpacity: 0.5,
+//   weight: 1,
+// }).addTo(map);
+
+var SubwayPoints = {
+    radius: 10,
+    color: "BLACK",
+    fillColor: "BLACK",
+    weight: 1,
+};
+
+var SubwayStationPoints  = L.geoJSON(SubwayStations, {
+   pointToLayer: function (feature, latlng) {
+     var marker = L.circleMarker(latlng, SubwayPoints)
+         .bindPopup(feature.properties.name +  feature.properties.line, {offset: [0, -6]});
+         marker.on('mouseover', function (e) {
+             this.openPopup();
+         });
+         marker.on('mouseout', function (e) {
+             this.closePopup();
+         });
+
+      return marker;
+  }
 }).addTo(map);
 
 var StudyAreaBoundary = L.geoJSON(StudyArea, {

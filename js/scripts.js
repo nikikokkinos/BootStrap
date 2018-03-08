@@ -99,6 +99,7 @@ var SubwayPoints = {
 var SubwayStationPoints  = L.geoJSON(SubwayStations, {
    pointToLayer: function (feature, latlng) {
      var marker = L.circleMarker(latlng, SubwayPoints)
+     // need to find a way to make space between name of station and line
          .bindPopup(feature.properties.name +  feature.properties.line, {offset: [0, -6]});
          marker.on('mouseover', function (e) {
              this.openPopup();
